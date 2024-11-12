@@ -25,6 +25,12 @@ public class PizzaController : ControllerBase
     return pizza;
   }
 
+  [HttpGet("/menu")]
+  public ActionResult<string> PrintMenu()
+  {
+    return PizzaService.PrintMenu();
+  }
+
   [HttpPost]
   public IActionResult Create(Pizza pizza)
   {

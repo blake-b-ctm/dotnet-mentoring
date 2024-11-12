@@ -20,6 +20,16 @@ public static class PizzaService
 
     public static Pizza? Get(int id) => Pizzas.FirstOrDefault(p => p.Id == id);
 
+    public static string PrintMenu()
+    {
+        var sb = new StringBuilder();
+        sb.AppendLine("- Blake's Pizza Place -");
+        Pizzas.ForEach(p => {
+            sb.AppendLine(p.GetMenuDescription());
+        });
+        return sb.ToString();
+    }
+
     public static void Add(Pizza pizza)
     {
         pizza.Id = nextId++;
